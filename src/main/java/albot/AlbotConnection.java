@@ -1,7 +1,6 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+package albot;
+
+import java.io.*;
 import java.net.Socket;
 
 public class AlbotConnection {
@@ -32,6 +31,7 @@ public class AlbotConnection {
         }
     }
 
+    // Might have to fetch data another way if there are line breaks in data.
     public String receiveState() {
         String incomingData = null;
         try {
