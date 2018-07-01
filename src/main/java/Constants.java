@@ -1,4 +1,3 @@
-package albot;
 
 public final class Constants {
 
