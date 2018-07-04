@@ -7,7 +7,7 @@ public class AlbotConnection {
 
     private BufferedReader in;
     private PrintWriter out;
-    private final int bufferSize = 1024;
+    private final int bufferSize = 2048;
 
     private boolean gameOver = false;
     private int winner;
@@ -70,7 +70,7 @@ public class AlbotConnection {
 
     private void handleGameOverCheck(String incomingData) {
         incomingData = incomingData.trim();
-        if (incomingData.length() >= 8 && incomingData.substring(0, 8) == Constants.Fields.gameOver) {
+        if (incomingData.length() >= 8 && incomingData.substring(0, 8).equals(Constants.Fields.gameOver)) {
             if (incomingData.endsWith("-1")) {
                 winner = -1;
                 System.out.println("You lost!");

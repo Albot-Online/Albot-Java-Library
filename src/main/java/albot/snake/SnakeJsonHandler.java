@@ -12,7 +12,7 @@ class SnakeJsonHandler {
         JsonObject jBoard = new JsonObject();
         jBoard.add(JProtocol.player, gson.toJsonTree(board.playerPlacement));
         jBoard.add(JProtocol.enemy, gson.toJsonTree(board.enemyPlacement));
-        jBoard.add(JProtocol.blocked, gson.toJsonTree(board.getBlockedList()).getAsJsonArray());
+        jBoard.add(JProtocol.blocked, gson.toJsonTree(board.getBlockedList(false)).getAsJsonArray());
 
         return jBoard;
     }
@@ -30,8 +30,10 @@ class SnakeJsonHandler {
     static String createCommandSimulate(SnakeBoard board, MovesToSimulate simMoves) {
         JsonObject jsonCommand = new JsonObject();
         jsonCommand.addProperty(Constants.Fields.action, Constants.Actions.simMove);
-        jsonCommand.addProperty(JProtocol.playerMove, simMoves.playerMove);
-        jsonCommand.addProperty(JProtocol.enemyMove, simMoves.enemyMove);
+        if(simMoves.playerMove != null)
+            jsonCommand.addProperty(JProtocol.playerMove, simMoves.playerMove);
+        if(simMoves.enemyMove != null)
+            jsonCommand.addProperty(JProtocol.enemyMove, simMoves.enemyMove);
         jsonCommand.add(JProtocol.board, serializeBoard(board));
         System.out.println("Create command simulate:  \n" + jsonCommand.toString() + "\n");
 

@@ -66,5 +66,11 @@ public final class SnakeBeans {
             this.playerMove = playerMove;
             this.enemyMove = enemyMove;
         }
+        public MovesToSimulate(String move, boolean player) {
+            if(player)
+                this.playerMove = move;
+            else
+                this.enemyMove = move;
+        }
     }
 }

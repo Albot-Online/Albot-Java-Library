@@ -3,6 +3,8 @@ package albot.snake;
 import albot.AlbotConnection;
 import albot.Constants;
 
+import java.util.function.Function;
+
 import static albot.snake.SnakeBeans.*;
 
 public class SnakeGame extends AlbotConnection {
@@ -40,6 +42,16 @@ public class SnakeGame extends AlbotConnection {
         return SnakeJsonHandler.parseResponsePossibleMoves(response);
     }
 
+    public SnakeBoard simulatePlayerMove(SnakeBoard board, String move) {
+        MovesToSimulate simMoves = new MovesToSimulate(move, true);
+        return handleSimulateMove(board, simMoves);
+    }
+
+    public SnakeBoard simulateEnemyMove(SnakeBoard board, String move) {
+        MovesToSimulate simMoves = new MovesToSimulate(move, false);
+        return handleSimulateMove(board, simMoves);
+    }
+
     public SnakeBoard simulateMoves(SnakeBoard board, String playerMove, String enemyMove) {
         MovesToSimulate simMoves = new MovesToSimulate(playerMove, enemyMove);
         return handleSimulateMove(board, simMoves);
@@ -58,8 +70,7 @@ public class SnakeGame extends AlbotConnection {
         return SnakeJsonHandler.parseResponseEvaluate(response);
     }
 
-    /*
-    public void PlayGame(Callable<String> decideMove, boolean autoRestart) {
+    public void playGame(Function<SnakeBoard, String> decideMove, boolean autoRestart) {
 
         while (true) {
             SnakeBoard newBoard = getNextBoard();
@@ -70,12 +81,11 @@ public class SnakeGame extends AlbotConnection {
                 } else
                     break;
             }
-            String move = decideMove.call(newBoard);
+            String move = decideMove.apply(newBoard);
             makeMove(move);
         }
 
     }
-    */
 
 }
 
