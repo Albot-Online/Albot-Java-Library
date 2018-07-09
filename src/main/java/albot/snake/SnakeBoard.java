@@ -40,6 +40,12 @@ public class SnakeBoard {
                     blocked[x][y] = board.blocked[x][y];
     }
 
+    /**
+     * Checks if cell is occupied.
+     * @param x x-coordinate for cell
+     * @param y y-coordinate for cell
+     * @return True if position is occupied, false if square is empty.
+     */
     public boolean cellBlocked(int x, int y) {
         if (x < 0 || y < 0 || x >= Fields.BOARD_WIDTH || y >= Fields.BOARD_HEIGHT)
             return true; // Out of bounds
@@ -53,6 +59,11 @@ public class SnakeBoard {
     public String getPlayerDirection() { return playerPlacement.dir; }
     public String getEnemyDirection() { return enemyPlacement.dir; }
 
+    /**
+     * The list of blocked cells.
+     * @param includePlayerPositions if true, cells containing the head of the snakes are regarded as blocked.
+     * @return Linked list with blocked cells
+     */
     public List<Position> getBlockedList(boolean includePlayerPositions) {
         List<Position> b = new LinkedList<Position>();
         for (int xb = 0; xb < Fields.BOARD_WIDTH; xb++)

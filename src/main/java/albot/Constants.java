@@ -22,6 +22,9 @@ public final class Constants {
         public static final String getPossMoves = "GetPossibleMoves";
     }
 
+    /**
+     * Whether the game is over and if so, who the winner is.
+     */
     public enum BoardState { PlayerWon, EnemyWon, Draw, Ongoing }
 
 }
