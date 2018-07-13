@@ -7,7 +7,7 @@
     <groupId>com.albotonline.albot</groupId>
     <artifactId>albot</artifactId>
     <packaging>jar</packaging>
-    <version>1.0</version>
+    <version>1.0.0</version>
     <name>Albot</name>
     <url>https://www.albot.online</url>
     <description>A library to easily connect to Albot. Also provides basic game logic</description>
@@ -24,7 +24,6 @@
 
     <build>
         <plugins>
-            <!-- any other plugins -->
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <executions>
@@ -50,6 +49,31 @@
                     <target>8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>sign-artifacts</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -62,10 +86,33 @@
         </developer>
     </developers>
 
+    <licenses>
+        <!-- open source, free to modify, use and distribute -->
+        <license>
+            <name>Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
     <scm>
         <connection>scm:git:git://github.com/Albot-Online/Albot-Java-Library.git</connection>
         <developerConnection>scm:git:ssh:/github.com/Albot-Online/Albot-Java-Library.git</developerConnection>
         <url>http://github.com/Albot-Online/Albot-Java-Library/tree/master</url>
     </scm>
+
+    <!--
+    <distributionManagement>
+        <downloadUrl>https://github.com/Albot-Online/Albot-Java-Library</downloadUrl>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>albotRepository</id>
+            <name>Albot Repository</name>
+            <url>scp://github.com/Albot-Online/Albot-Java-Library</url>
+            <url>scp://C:/Users\Joeyeyey/.m2/repository</url>
+            <layout>default</layout>
+        </repository>
+    </distributionManagement>
+    -->
 
 </project>

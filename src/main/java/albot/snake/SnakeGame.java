@@ -55,7 +55,7 @@ public class SnakeGame extends AlbotConnection {
 
     /**
      * Returns the possible moves for both the player and the enemy, based off directions only.
-     * @param board
+     * @param board board to get possible moves from
      * @return class containing a list of possible moves for the player and the enemy
      */
     public PossibleMoves getPossibleMoves(SnakeBoard board) {
