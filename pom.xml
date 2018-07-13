@@ -7,7 +7,7 @@
     <groupId>com.albotonline.albot</groupId>
     <artifactId>albot</artifactId>
     <packaging>jar</packaging>
-    <version>1.0.0</version>
+    <version>1.0.0-SNAPSHOT</version>
     <name>Albot</name>
     <url>https://www.albot.online</url>
     <description>A library to easily connect to Albot. Also provides basic game logic</description>
