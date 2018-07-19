@@ -31,6 +31,15 @@ public class GridBoard {
         this.grid = gridBoard.grid.clone();
     }
 
+    /**
+     * Gives the value of a cell. (0,0) is in the top left corner.
+     * @param x Zero based x index
+     * @param y Zero based y index
+     * @return 1 if player, -1 if enemy, 0 if empty
+     */
+    public int getCell(int x, int y) {
+        return grid[x][y];
+    }
 
     public String serialize() {
         StringBuilder boardString = new StringBuilder();
@@ -43,13 +52,13 @@ public class GridBoard {
     }
 
     // Util
-    public void iterateBoard(BiConsumer<Integer, Integer> cellFunc) {
+    private void iterateBoard(BiConsumer<Integer, Integer> cellFunc) {
         for (int y = 0; y < HEIGHT; y++)
             for (int x = 0; x < WIDTH; x++)
                 cellFunc.accept(x, y);
     }
 
-    public void iterateBoard(BiConsumer<Integer, Integer> cellFunc, Consumer<Integer> rowFunc) {
+    private void iterateBoard(BiConsumer<Integer, Integer> cellFunc, Consumer<Integer> rowFunc) {
         for (int y = 0; y < 6; y++) {
             for (int x = 0; x < 7; x++)
                 cellFunc.accept(x, y);
