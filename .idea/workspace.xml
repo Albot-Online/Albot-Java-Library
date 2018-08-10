@@ -25,20 +25,22 @@
       <file leaf-file-name="AlbotConnection.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/albot/AlbotConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="21" selection-end-column="7" />
+            <state relative-caret-position="17">
+              <caret line="87" column="25" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#3774#3775#0" expanded="true" />
+                <element signature="e#3851#3852#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SnakeGame.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SnakeGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/albot/snake/SnakeGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="697">
-              <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
+            <state relative-caret-position="507">
+              <caret line="122" column="31" selection-start-line="122" selection-start-column="31" selection-end-line="122" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -85,15 +87,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SnakeBeans.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/albot/snake/SnakeBeans.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1224">
-              <caret line="72" column="38" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GridBasedGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/albot/grid_based/GridBasedGame.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -118,17 +111,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GridBoard.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GridBoard.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/albot/grid_based/GridBoard.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+            <state relative-caret-position="255">
+              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#957#958#0" expanded="true" />
-                <element signature="e#990#991#0" expanded="true" />
-                <element signature="e#2146#2147#0" expanded="true" />
-                <element signature="e#2197#2198#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -166,20 +155,20 @@
         <option value="$PROJECT_DIR$/src/main/java/snake/SnakeGame.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/snake/SnakeConstants.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/snake/SnakeBeans.java" />
-        <option value="$PROJECT_DIR$/src/main/java/albot/snake/SnakeJsonHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/connect4/Connect4Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/grid_based/connect4/connect4/Connect4Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/grid_based/connect4/Connect4Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/grid_based/connect4/Connect4Board.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/grid_based/GridBasedJsonHandler.java" />
-        <option value="$PROJECT_DIR$/src/main/java/albot/AlbotConnection.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/Constants.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/snake/SnakeBoard.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/grid_based/connect4/Connect4Game.java" />
         <option value="$PROJECT_DIR$/src/main/java/albot/grid_based/GridBasedGame.java" />
-        <option value="$PROJECT_DIR$/src/main/java/albot/snake/SnakeGame.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/albot/grid_based/GridBoard.java" />
+        <option value="$PROJECT_DIR$/src/main/java/albot/snake/SnakeGame.java" />
+        <option value="$PROJECT_DIR$/src/main/java/albot/AlbotConnection.java" />
+        <option value="$PROJECT_DIR$/src/main/java/albot/snake/SnakeJsonHandler.java" />
       </list>
     </option>
   </component>
@@ -225,7 +214,7 @@
     </navigator>
     <panes>
       <pane id="AndroidView" />
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -287,15 +276,20 @@
               <item name="albot" type="462c0819:PsiDirectoryNode" />
               <item name="snake" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="albot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Albot-Java-Library" type="462c0819:PsiDirectoryNode" />
+              <item name="target" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Bots/Java/SnakeBot" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Bots/Albot-Bots/Java/SnakeBot" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -381,11 +375,11 @@
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" weight="0.32897604" />
       <window_info anchor="right" id="Maven Projects" order="3" visible="true" weight="0.32995737" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32897604" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32897604" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32897604" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20575693" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21002132" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="2" />
@@ -404,16 +398,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/albot/snake/SnakeGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="23" column="35" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/albot/snake/SnakeJsonHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -455,6 +439,8 @@
           <caret line="72" column="72" lean-forward="true" selection-start-line="72" selection-start-column="72" selection-end-line="72" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3774#3775#0" expanded="true" />
+            <element signature="e#3851#3852#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -472,6 +458,8 @@
           <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3774#3775#0" expanded="true" />
+            <element signature="e#3851#3852#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -534,6 +522,8 @@
           <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3774#3775#0" expanded="true" />
+            <element signature="e#3851#3852#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -596,6 +586,8 @@
           <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#3774#3775#0" expanded="true" />
+            <element signature="e#3851#3852#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -660,9 +652,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Bots/Java/SnakeBot/SnakeBot.iml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Bots/Java/SnakeBot/SnakeBot.iml" />
     <entry file="file://$PROJECT_DIR$/Albot-Java-Library.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -680,13 +670,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/albot/snake/SnakeJsonHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="51" column="69" lean-forward="true" selection-start-line="51" selection-start-column="69" selection-end-line="51" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/albot/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -698,16 +681,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="833">
           <caret line="72" column="36" lean-forward="true" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/albot/AlbotConnection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="21" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -738,16 +711,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="44" selection-start-line="6" selection-start-column="44" selection-end-line="6" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/albot/snake/SnakeGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="697">
-          <caret line="50" column="7" selection-start-line="50" selection-start-column="7" selection-end-line="50" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -790,14 +753,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/albot/grid_based/GridBoard.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="37" column="51" lean-forward="true" selection-start-line="37" selection-start-column="51" selection-end-line="37" selection-end-column="51" />
+        <state relative-caret-position="255">
+          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#957#958#0" expanded="true" />
-            <element signature="e#990#991#0" expanded="true" />
-            <element signature="e#2146#2147#0" expanded="true" />
-            <element signature="e#2197#2198#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../Bots/Albot-Bots/Java/SnakeBot/SnakeBot.iml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/albot/AlbotConnection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="87" column="25" selection-start-line="87" selection-start-column="25" selection-end-line="87" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3774#3775#0" expanded="true" />
+            <element signature="e#3851#3852#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/albot/snake/SnakeJsonHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="67" column="26" selection-start-line="67" selection-start-column="10" selection-end-line="67" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/albot/snake/SnakeGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="507">
+          <caret line="122" column="31" selection-start-line="122" selection-start-column="31" selection-end-line="122" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

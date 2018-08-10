@@ -85,6 +85,7 @@ public class AlbotConnection {
     public void restartGame() {
         System.out.println("Restarting game...");
         sendCommand(Constants.Actions.restartGame);
+        gameOver = false;
     }
 
     /**

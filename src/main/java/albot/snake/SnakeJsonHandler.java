@@ -35,7 +35,7 @@ class SnakeJsonHandler {
         if(simMoves.enemyMove != null)
             jsonCommand.addProperty(JProtocol.enemyMove, simMoves.enemyMove);
         jsonCommand.add(JProtocol.board, serializeBoard(board));
-        System.out.println("Create command simulate:  \n" + jsonCommand.toString() + "\n");
+        //System.out.println("Create command simulate:  \n" + jsonCommand.toString() + "\n");
 
         return gson.toJson(jsonCommand);
     }
@@ -65,7 +65,7 @@ class SnakeJsonHandler {
     static Constants.BoardState parseResponseEvaluate(String response) {
         JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
         String boardState = gson.fromJson(jsonObject.get(Constants.Fields.boardState), String.class);
-        System.out.println(boardState);
+        //System.out.println(boardState);
         return Constants.BoardState.valueOf(boardState);
     }
 }

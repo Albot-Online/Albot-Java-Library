@@ -117,6 +117,15 @@ public class SnakeGame extends AlbotConnection {
     }
 
     /**
+     * Sends a command to restart the game, resets local game state.
+     */
+    @Override
+    public void restartGame() {
+        currentBoard = null;
+        super.restartGame();
+    }
+
+    /**
      * Plays an entire game by making moves returned by the function provided.
      * @param decideMove a function which takes the current board as argument and returns a move to play
      * @param autoRestart whether you want the game to restart automatically after it has finished
