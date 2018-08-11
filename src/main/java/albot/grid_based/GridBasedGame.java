@@ -15,8 +15,6 @@ public abstract class GridBasedGame extends AlbotConnection {
     private String state;
     private boolean stateUpToDate = false;
 
-    private static String BOARD = "Board";
-
     public GridBasedGame(String ip, int port) {
         super(ip, port);
         initGridDimensions();

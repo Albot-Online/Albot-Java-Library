@@ -4,22 +4,22 @@ public final class Constants {
 
     public static class Fields {
         public static final String board = "board";
-        public static final String evaluate = "Evaluate";
-        public static final String possibleMoves = "PossMoves";
-        public static final String move = "Move";
-        public static final String player = "Player";
-        public static final String action = "Action";
-        public static final String winner = "Winner";
-        public static final String gameOver = "GameOver";//\n";
+        public static final String evaluate = "evaluate";
+        public static final String possibleMoves = "possMoves";
+        public static final String move = "move";
+        public static final String player = "player";
+        public static final String action = "action";
+        public static final String winner = "winner";
+        public static final String gameOver = "gameOver";//\n";
         public static final String boardState = "boardState";
     }
 
     public static class Actions {
-        public static final String restartGame = "RestartGame";
-        public static final String makeMove = "MakeMove";
-        public static final String simMove = "SimulateMove";
-        public static final String evalBoard = "EvaluateBoard";
-        public static final String getPossMoves = "GetPossibleMoves";
+        public static final String restartGame = "restartGame";
+        public static final String makeMove = "makeMove";
+        public static final String simMove = "simulateMove";
+        public static final String evalBoard = "evaluateBoard";
+        public static final String getPossMoves = "getPossibleMoves";
     }
 
     /**

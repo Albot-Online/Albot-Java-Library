@@ -12,19 +12,17 @@ import java.util.List;
 class GridBasedJsonHandler {
     static Gson gson = new Gson();
 
-    private static String BOARD = "Board";
-
     static String createCommandPossibleMoves(GridBoard board) {
         JsonObject jsonCommand = new JsonObject();
         jsonCommand.addProperty(Fields.action, Actions.getPossMoves);
-        jsonCommand.addProperty(BOARD, board.serialize());
+        jsonCommand.addProperty(Fields.board, board.serialize());
         return gson.toJson(jsonCommand);
     }
 
     static String createCommandSimulateMove(GridBoard board, int player, int move) {
         JsonObject jsonCommand = new JsonObject();
         jsonCommand.addProperty(Fields.action, Actions.simMove);
-        jsonCommand.addProperty(BOARD, board.serialize());
+        jsonCommand.addProperty(Fields.board, board.serialize());
         jsonCommand.addProperty(Fields.player, Integer.toString(player));
         jsonCommand.addProperty(Fields.move,move);
         return gson.toJson(jsonCommand);
@@ -33,13 +31,13 @@ class GridBasedJsonHandler {
     static String createCommandEvaluate(GridBoard board) {
         JsonObject jsonCommand = new JsonObject();
         jsonCommand.addProperty(Fields.action, Actions.evalBoard);
-        jsonCommand.addProperty(BOARD, board.serialize());
+        jsonCommand.addProperty(Fields.board, board.serialize());
         return gson.toJson(jsonCommand);
     }
 
     static GridBoard parseResponseState(String response, int width, int height) {
         JsonObject jResponse = gson.fromJson(response, JsonObject.class);
-        String serializedGrid = jResponse.get(BOARD).getAsString();
+        String serializedGrid = jResponse.get(Fields.board).getAsString();
         return new GridBoard(width, height, serializedGrid);
     }
 
