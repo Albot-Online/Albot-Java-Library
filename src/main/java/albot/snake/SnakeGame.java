@@ -36,7 +36,7 @@ public class SnakeGame extends AlbotConnection {
      */
     public SnakeBoard getNextBoard() {
 
-        String state = receiveState(); // Receive before check for game over
+        String state = receiveMessage(); // Receive before check for game over
 
         if (gameOver())
             return null;
@@ -60,7 +60,7 @@ public class SnakeGame extends AlbotConnection {
      */
     public PossibleMoves getPossibleMoves(SnakeBoard board) {
         String request = SnakeJsonHandler.createCommandPossibleMoves(board);
-        String response = sendCommandReceiveState(request);
+        String response = sendCommandReceiveMessage(request);
         return SnakeJsonHandler.parseResponsePossibleMoves(response);
     }
 
@@ -100,7 +100,7 @@ public class SnakeGame extends AlbotConnection {
 
     private SnakeBoard handleSimulateMove(SnakeBoard board, MovesToSimulate simMoves) {
         String request = SnakeJsonHandler.createCommandSimulate(board, simMoves);
-        String response = sendCommandReceiveState(request);
+        String response = sendCommandReceiveMessage(request);
         return SnakeJsonHandler.parseResponseSimulate(response);
     }
 
@@ -111,7 +111,7 @@ public class SnakeGame extends AlbotConnection {
      */
     public Constants.BoardState evaluateBoard(SnakeBoard board) {
         String request = SnakeJsonHandler.createCommandEvaluate(board);
-        String response = sendCommandReceiveState(request);
+        String response = sendCommandReceiveMessage(request);
 
         return SnakeJsonHandler.parseResponseEvaluate(response);
     }

@@ -44,10 +44,10 @@ public class AlbotConnection {
     // Might have to fetch data another way if there are line breaks in data.
 
     /**
-     * Blocking receive call for new state as raw string.
+     * Blocking receive call for new TCP message as raw string.
      * @return response as raw string
      */
-    public String receiveState() {
+    public String receiveMessage() {
         String incomingData = null;
         try {
             do {
@@ -70,13 +70,13 @@ public class AlbotConnection {
     }
 
     /**
-     * Sends the string to the client as a raw string, then makes a blocking receive call for new state.
+     * Sends the string to the client as a raw string, then makes a blocking receive call for new TCP message.
      * @param command command to send as raw string
      * @return response as raw string
      */
-    public String sendCommandReceiveState(String command) {
+    public String sendCommandReceiveMessage(String command) {
         sendCommand(command);
-        return receiveState();
+        return receiveMessage();
     }
 
     /**

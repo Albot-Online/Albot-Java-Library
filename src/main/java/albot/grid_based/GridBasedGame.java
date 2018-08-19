@@ -32,7 +32,7 @@ public abstract class GridBasedGame extends AlbotConnection {
         if (stateUpToDate)
             return state;
 
-        state = receiveState();
+        state = receiveMessage();
         stateUpToDate = true;
         return state;
     }
@@ -75,7 +75,7 @@ public abstract class GridBasedGame extends AlbotConnection {
     public List<Integer> getPossibleMoves(GridBoard board) {
         String jCommand = GridBasedJsonHandler.createCommandPossibleMoves(board);
 
-        String response = sendCommandReceiveState(jCommand);
+        String response = sendCommandReceiveMessage(jCommand);
         return GridBasedJsonHandler.parseResponsePossibleMoves(response);
     }
 
@@ -89,7 +89,7 @@ public abstract class GridBasedGame extends AlbotConnection {
     public GridBoard simulateMove(GridBoard board, int player, int move) {
         String jCommand = GridBasedJsonHandler.createCommandSimulateMove(board, player, move);
 
-        String response = sendCommandReceiveState(jCommand);
+        String response = sendCommandReceiveMessage(jCommand);
         return GridBasedJsonHandler.parseResponseState(response, width, height);
     }
 
@@ -101,7 +101,7 @@ public abstract class GridBasedGame extends AlbotConnection {
     public BoardState evaluateBoard(GridBoard board) {
         String jCommand = GridBasedJsonHandler.createCommandEvaluate(board);
 
-        String response = sendCommandReceiveState(jCommand);
+        String response = sendCommandReceiveMessage(jCommand);
         return GridBasedJsonHandler.parseResponseEvaluate(response);
     }
 

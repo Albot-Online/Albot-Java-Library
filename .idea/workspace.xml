@@ -2,22 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33b2b6a3-5d19-4726-b7db-701cf150f909" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/albot-1.0.0-SNAPSHOT-javadoc.jar" afterPath="$PROJECT_DIR$/target/albot-1.0.0-SNAPSHOT-javadoc.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/albot-1.0.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/albot-1.0.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/albot/Constants$BoardState.class" afterPath="$PROJECT_DIR$/target/classes/albot/Constants$BoardState.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/albot/Constants.class" afterPath="$PROJECT_DIR$/target/classes/albot/Constants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/albot/grid_based/GridBoard.class" afterPath="$PROJECT_DIR$/target/classes/albot/grid_based/GridBoard.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/albot/grid_based/connect4/Connect4Constants.class" afterPath="$PROJECT_DIR$/target/classes/albot/grid_based/connect4/Connect4Constants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/albot/snake/SnakeBeans.class" afterPath="$PROJECT_DIR$/target/classes/albot/snake/SnakeBeans.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/albot/snake/SnakeConstants.class" afterPath="$PROJECT_DIR$/target/classes/albot/snake/SnakeConstants.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/albot/Constants.java" afterPath="$PROJECT_DIR$/src/main/java/albot/Constants.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/javadoc-bundle-options/javadoc-options-javadoc-resources.xml" afterPath="$PROJECT_DIR$/target/javadoc-bundle-options/javadoc-options-javadoc-resources.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/albot/AlbotConnection.java" afterPath="$PROJECT_DIR$/src/main/java/albot/AlbotConnection.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/albot/grid_based/GridBasedGame.java" afterPath="$PROJECT_DIR$/src/main/java/albot/grid_based/GridBasedGame.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/albot/snake/SnakeGame.java" afterPath="$PROJECT_DIR$/src/main/java/albot/snake/SnakeGame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,8 +31,8 @@
       <file leaf-file-name="AlbotConnection.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/albot/AlbotConnection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="599">
-              <caret line="117" column="38" lean-forward="false" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
+            <state relative-caret-position="329">
+              <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -63,8 +50,8 @@
                 <element signature="e#561#562#0" expanded="false" />
                 <element signature="e#671#672#0" expanded="false" />
                 <element signature="e#694#695#0" expanded="false" />
-                <element signature="e#1297#1298#0" expanded="false" />
-                <element signature="e#1335#1336#0" expanded="false" />
+                <element signature="e#1299#1300#0" expanded="false" />
+                <element signature="e#1337#1338#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -540,6 +527,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -550,7 +538,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3295699" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -675,8 +663,8 @@
             <element signature="e#561#562#0" expanded="false" />
             <element signature="e#671#672#0" expanded="false" />
             <element signature="e#694#695#0" expanded="false" />
-            <element signature="e#1297#1298#0" expanded="false" />
-            <element signature="e#1335#1336#0" expanded="false" />
+            <element signature="e#1299#1300#0" expanded="false" />
+            <element signature="e#1337#1338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -777,8 +765,8 @@
             <element signature="e#561#562#0" expanded="false" />
             <element signature="e#671#672#0" expanded="false" />
             <element signature="e#694#695#0" expanded="false" />
-            <element signature="e#1297#1298#0" expanded="false" />
-            <element signature="e#1335#1336#0" expanded="false" />
+            <element signature="e#1299#1300#0" expanded="false" />
+            <element signature="e#1337#1338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -809,8 +797,8 @@
             <element signature="e#561#562#0" expanded="false" />
             <element signature="e#671#672#0" expanded="false" />
             <element signature="e#694#695#0" expanded="false" />
-            <element signature="e#1297#1298#0" expanded="false" />
-            <element signature="e#1335#1336#0" expanded="false" />
+            <element signature="e#1299#1300#0" expanded="false" />
+            <element signature="e#1337#1338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -913,8 +901,8 @@
             <element signature="e#561#562#0" expanded="false" />
             <element signature="e#671#672#0" expanded="false" />
             <element signature="e#694#695#0" expanded="false" />
-            <element signature="e#1297#1298#0" expanded="false" />
-            <element signature="e#1335#1336#0" expanded="false" />
+            <element signature="e#1299#1300#0" expanded="false" />
+            <element signature="e#1337#1338#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -976,8 +964,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/albot/AlbotConnection.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="599">
-          <caret line="117" column="38" lean-forward="false" selection-start-line="117" selection-start-column="38" selection-end-line="117" selection-end-column="38" />
+        <state relative-caret-position="329">
+          <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
