@@ -94,11 +94,33 @@ public class SnakeBoard {
         }
         return s;
     }
+
+    /**
+     * Prints the board to the console.
+     * @param boardTitle Optional title for the printed board.
+     */
+    public void printBoard(String boardTitle) {
+        System.out.println("* * * * * * " + boardTitle + "* * * * * *");
+        printBoardInfo();
+        System.out.println("* * * * * * * * * * * *");
+    }
+
+    /**
+     * Prints the board to the console.
+     */
+    public void printBoard() {
+        System.out.println("* * * * * * * * * * * *");
+        printBoardInfo();
+        System.out.println("* * * * * * * * * * * *");
+    }
+    private void printBoardInfo() {
+        System.out.print(toString());
+    }
     private String squareInfo(int x, int y) {
         if (x == playerPlacement.x && y == playerPlacement.y)
             return "P";
         if (x == enemyPlacement.x && y == enemyPlacement.y)
             return "E";
-        return blocked[x][y] ? "1" : "0";
+        return blocked[x][y] ? "X" : "0";
     }
 }

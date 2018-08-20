@@ -80,8 +80,26 @@ public class GridBoard {
         return boardString.toString();
     }
 
+    /**
+     * Prints the board to the console.
+     * @param boardTitle Optional title for the printed board.
+     */
+    public void printBoard(String boardTitle) {
+        System.out.println("* * * * * * " + boardTitle + "* * * * * *");
+        printBoardInfo();
+        System.out.println("* * * * * * * * * * * *");
+    }
+
+    /**
+     * Prints the board to the console.
+     */
     public void printBoard() {
-        System.out.println(this.toString());
+        System.out.println("* * * * * * * * * * * *");
+        printBoardInfo();
+        System.out.println("* * * * * * * * * * * *");
+    }
+    private void printBoardInfo() {
+        System.out.print(toString());
     }
 
 }
