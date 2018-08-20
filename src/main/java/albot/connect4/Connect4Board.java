@@ -1,7 +1,7 @@
-package albot.grid_based.connect4;
+package albot.connect4;
 
 import albot.grid_based.GridBoard;
-import static albot.grid_based.connect4.Connect4Constants.*;
+import static albot.connect4.Connect4Constants.*;
 
 public class Connect4Board extends GridBoard {
 

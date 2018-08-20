@@ -1,4 +1,4 @@
-package albot.grid_based.connect4;
+package albot.connect4;
 
 public final class Connect4Constants {
 

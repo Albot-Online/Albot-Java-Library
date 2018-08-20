@@ -10,8 +10,8 @@ class SnakeJsonHandler {
 
     private static JsonObject serializeBoard(SnakeBoard board) {
         JsonObject jBoard = new JsonObject();
-        jBoard.add(JProtocol.player, gson.toJsonTree(board.playerPlacement));
-        jBoard.add(JProtocol.enemy, gson.toJsonTree(board.enemyPlacement));
+        jBoard.add(JProtocol.player, gson.toJsonTree(board.player));
+        jBoard.add(JProtocol.enemy, gson.toJsonTree(board.enemy));
         jBoard.add(JProtocol.blocked, gson.toJsonTree(board.getBlockedList(false)).getAsJsonArray());
 
         return jBoard;

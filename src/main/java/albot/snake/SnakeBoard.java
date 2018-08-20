@@ -6,7 +6,7 @@ import static albot.snake.SnakeConstants.Fields;
 import static albot.snake.SnakeBeans.*;
 
 public class SnakeBoard {
-    SnakeBeans.Placement playerPlacement, enemyPlacement;
+    public SnakeBeans.Placement player, enemy;
     private boolean[][] blocked = new boolean[Fields.BOARD_WIDTH][Fields.BOARD_HEIGHT];
 
     public SnakeBoard(SnakeBoard board, BoardBean boardBean) {
@@ -18,13 +18,13 @@ public class SnakeBoard {
     }
 
     private void extractResponseInfo(BoardBean response) {
-        playerPlacement = response.player;
-        enemyPlacement = response.enemy;
+        player = response.player;
+        enemy = response.enemy;
         /* Does not work well with Evaluate
-        if(coordsInBounds(playerPlacement.x, playerPlacement.y))
-            blocked[playerPlacement.x][playerPlacement.y] = true;
-        if(coordsInBounds(enemyPlacement.x, enemyPlacement.y))
-            blocked[enemyPlacement.x][enemyPlacement.y] = true;
+        if(coordsInBounds(player.x, player.y))
+            blocked[player.x][player.y] = true;
+        if(coordsInBounds(enemy.x, enemy.y))
+            blocked[enemy.x][enemy.y] = true;
         */
 
         for (Position pos : response.blocked) {
@@ -49,16 +49,23 @@ public class SnakeBoard {
     public boolean cellBlocked(int x, int y) {
         if (x < 0 || y < 0 || x >= Fields.BOARD_WIDTH || y >= Fields.BOARD_HEIGHT)
             return true; // Out of bounds
-        if ((x == playerPlacement.x && y == playerPlacement.y) || (x == enemyPlacement.x && y == enemyPlacement.y))
+        if ((x == player.x && y == player.y) || (x == enemy.x && y == enemy.y))
             return true;
         return blocked[x][y];
     }
 
-    public Position getPlayerPosition() { return new Position(playerPlacement.x, playerPlacement.y);}
-    public Position getEnemyPosition() { return new Position(enemyPlacement.x, enemyPlacement.y);}
-    public String getPlayerDirection() { return playerPlacement.dir; }
-    public String getEnemyDirection() { return enemyPlacement.dir; }
+    public Position getPlayerPosition() { return new Position(player.x, player.y);}
+    public Position getEnemyPosition() { return new Position(enemy.x, enemy.y);}
+    public String getPlayerDirection() { return player.dir; }
+    public String getEnemyDirection() { return enemy.dir; }
 
+    /**
+     * The list of blocked cells.
+     * @return Linked list with blocked cells
+     */
+    public List<Position> getBlockedList() {
+        return getBlockedList(true);
+    }
     /**
      * The list of blocked cells.
      * @param includePlayerPositions if true, cells containing the head of the snakes are regarded as blocked.
@@ -117,9 +124,9 @@ public class SnakeBoard {
         System.out.print(toString());
     }
     private String squareInfo(int x, int y) {
-        if (x == playerPlacement.x && y == playerPlacement.y)
+        if (x == player.x && y == player.y)
             return "P";
-        if (x == enemyPlacement.x && y == enemyPlacement.y)
+        if (x == enemy.x && y == enemy.y)
             return "E";
         return blocked[x][y] ? "X" : "0";
     }

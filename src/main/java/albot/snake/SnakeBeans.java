@@ -15,6 +15,11 @@ public final class SnakeBeans {
             this.y = y;
             this.dir = dir;
         }
+
+        @Override
+        public String toString() {
+            return "{'x': " + x + ", 'y': " + y + "}";
+        }
     }
 
     public static class Position {

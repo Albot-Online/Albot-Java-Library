@@ -1,11 +1,11 @@
-package albot.grid_based.connect4;
+package albot.connect4;
 
 import albot.grid_based.GridBasedGame;
 import albot.grid_based.GridBoard;
 
 import java.util.function.Function;
 
-import static albot.grid_based.connect4.Connect4Constants.*;
+import static albot.connect4.Connect4Constants.*;
 
 /**
  * A high level Connect4 library which sets up the connection and provides basic logic.
