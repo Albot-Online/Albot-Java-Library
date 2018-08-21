@@ -14,6 +14,7 @@ albot\grid_based\GridBasedJsonHandler.class
 albot\grid_based\GridBoard.class
 albot\Constants.class
 albot\Constants$BoardState.class
+albot\grid_based\GridBasedJsonHandler$2.class
 albot\grid_based\GridBasedGame.class
 albot\snake\SnakeBoard.class
 albot\AlbotConnection.class

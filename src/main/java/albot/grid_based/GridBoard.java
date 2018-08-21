@@ -41,14 +41,12 @@ public class GridBoard {
         return grid[x][y];
     }
 
-    public String serialize() {
-        StringBuilder boardString = new StringBuilder();
-
-        for (int y = 0; y < HEIGHT; y++)
-            for (int x = 0; x < WIDTH; x++)
-                boardString.append(grid[x][y]).append(" ");
-
-        return boardString.substring(0, boardString.length() - 1);
+    static int[][] transpose(int[][] grid, int widthOriginal, int heightOriginal) {
+        int[][] gridNew = new int[heightOriginal][widthOriginal];
+        for (int y = 0; y < heightOriginal; y++)
+            for (int x = 0; x < widthOriginal; x++)
+                gridNew[y][x] = grid[x][y];
+        return gridNew;
     }
 
     // Util
