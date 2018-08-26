@@ -8,8 +8,8 @@ import java.net.Socket;
  */
 public class AlbotConnection {
 
-    private BufferedReader in;
-    private PrintWriter out;
+    private static BufferedReader in;
+    private static PrintWriter out;
     private final int bufferSize = 2048;
 
     private boolean gameOver = false;
@@ -37,6 +37,7 @@ public class AlbotConnection {
             in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             out = new PrintWriter(s.getOutputStream(), true);
         } catch (IOException e) {
+            System.out.println("Could not establish TCP connection with Albot.");
             e.printStackTrace();
         }
     }
@@ -54,6 +55,7 @@ public class AlbotConnection {
                 incomingData = in.readLine();
             } while(incomingData == null);
         } catch (IOException e) {
+            System.out.println("Could not read message from TCP connection with Albot.");
             e.printStackTrace();
         }
         handleGameOverCheck(incomingData);
@@ -126,13 +128,15 @@ public class AlbotConnection {
     /**
      * Kills the TCP connection properly.
      */
-    public void killConnection() {
+    static void terminate() {
         out.close();
         try {
             in.close();
         } catch (IOException e) {
+            System.out.println("Could not close BufferedReader. (TCP)");
             e.printStackTrace();
         }
+        System.exit(0);
     }
 
     private void printConnectedMessage() {

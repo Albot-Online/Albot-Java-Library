@@ -1,6 +1,7 @@
 package albot.snake;
 
 import albot.Constants;
+import albot.JsonHandler;
 import com.google.gson.*;
 import static albot.snake.SnakeConstants.JProtocol;
 import static albot.snake.SnakeBeans.*;
@@ -51,6 +52,7 @@ class SnakeJsonHandler {
     static BoardBean parseResponseState(String response) {
         //System.out.println("Response state: \n" + response + "\n");
         return gson.fromJson(response, BoardBean.class);
+        return JsonHandler.tryParse(response, BoardBean.class);
     }
 
     static PossibleMoves parseResponsePossibleMoves(String response) {
