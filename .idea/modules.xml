@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/albot.iml" filepath="$PROJECT_DIR$/albot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Albot-Java-Library.iml" filepath="$PROJECT_DIR$/Albot-Java-Library.iml" />
     </modules>
   </component>
 </project>

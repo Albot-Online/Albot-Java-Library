@@ -7,7 +7,7 @@ import static albot.snake.SnakeConstants.JProtocol;
 import static albot.snake.SnakeBeans.*;
 
 class SnakeJsonHandler {
-    static Gson gson = new Gson();
+    private static Gson gson = new Gson();
 
     private static JsonObject serializeBoard(SnakeBoard board) {
         JsonObject jBoard = new JsonObject();
@@ -56,17 +56,21 @@ class SnakeJsonHandler {
     }
 
     static PossibleMoves parseResponsePossibleMoves(String response) {
-        return gson.fromJson(response, PossibleMoves.class);
+        //return gson.fromJson(response, PossibleMoves.class);
+        return JsonHandler.tryParse(response, PossibleMoves.class);
     }
 
     static SnakeBoard parseResponseSimulate(String response) {
-        BoardBean boardBean = gson.fromJson(response, BoardBean.class);
+        //BoardBean boardBean = gson.fromJson(response, BoardBean.class);
+        BoardBean boardBean = JsonHandler.tryParse(response, BoardBean.class);
         return new SnakeBoard(boardBean);
     }
 
     static Constants.BoardState parseResponseEvaluate(String response) {
-        JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
-        String boardState = gson.fromJson(jsonObject.get(Constants.Fields.boardState), String.class);
+        //JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
+        JsonObject jsonObject = JsonHandler.tryParse(response, JsonObject.class);
+        //String boardState = gson.fromJson(jsonObject.get(Constants.Fields.boardState), String.class);
+        String boardState = JsonHandler.tryParse(jsonObject.get(Constants.Fields.boardState), String.class);
         //System.out.println(boardState);
         return Constants.BoardState.valueOf(boardState);
     }

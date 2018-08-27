@@ -19,6 +19,7 @@ albot\grid_based\GridBasedGame.class
 albot\snake\SnakeBoard.class
 albot\AlbotConnection.class
 albot\snake\SnakeBeans$BoardBean.class
+albot\JsonHandler.class
 albot\snake\SnakeBeans.class
 albot\snake\SnakeBeans$MovesToSimulate.class
 albot\snake\SnakeConstants$JProtocol.class
