@@ -51,7 +51,7 @@ class SnakeJsonHandler {
 
     static BoardBean parseResponseState(String response) {
         //System.out.println("Response state: \n" + response + "\n");
-        return gson.fromJson(response, BoardBean.class);
+        //return gson.fromJson(response, BoardBean.class);
         return JsonHandler.tryParse(response, BoardBean.class);
     }
 
