@@ -1,6 +1,9 @@
 package albot.grid_based;
 
 import albot.AlbotConnection;
+import albot.Game;
+import com.google.gson.JsonObject;
+
 import static albot.Constants.*;
 
 import java.util.List;
@@ -8,12 +11,11 @@ import java.util.List;
 /**
  * An abstract class that handles shared logic and structures used in grid- and turn based games.
  */
-public abstract class GridBasedGame extends AlbotConnection {
+public abstract class GridBasedGame extends Game {
 
     protected int width, height;
 
-    private String state;
-    private boolean stateUpToDate = false;
+    private GridBoard currentBoard;
 
     public GridBasedGame(String ip, int port) {
         super(ip, port);
@@ -27,42 +29,19 @@ public abstract class GridBasedGame extends AlbotConnection {
 
     protected abstract void initGridDimensions();
 
-    // Multiple accesses for state would, without this, get into an infinite blocking receive.
-    private String GetState() {
-        if (stateUpToDate)
-            return state;
-
-        state = receiveMessage();
-        stateUpToDate = true;
-        return state;
-    }
-
     @Override
-    public boolean gameOver() {
-        GetState();
-        return super.gameOver();
+    protected void extractState(JsonObject jState) {
+        currentBoard = GridBasedJsonHandler.parseResponseState(jState, width, height);
+        UpdateCurrentBoard(currentBoard);
     }
 
-    @Override
-    public void restartGame() {
-        super.restartGame();
-        stateUpToDate = false;
-    }
-
-    // Blocking receive 
-    public GridBoard getNextBoard() {
-        String state = GetState();
-        if (gameOver())
-            return null;
-        return new GridBoard(GridBasedJsonHandler.parseResponseState(state, width, height));
-    }
+    protected abstract void UpdateCurrentBoard(GridBoard board);
 
     /**
      * Plays a move
      * @param move move to make
      */
     public void makeMove(int move) {
-        stateUpToDate = false;
         sendCommand(Integer.toString(move));
     }
 
@@ -90,7 +69,7 @@ public abstract class GridBasedGame extends AlbotConnection {
         String jCommand = GridBasedJsonHandler.createCommandSimulateMove(board, player, move);
 
         String response = sendCommandReceiveMessage(jCommand);
-        return GridBasedJsonHandler.parseResponseState(response, width, height);
+        return GridBasedJsonHandler.parseResponseSimulateMove(response, width, height);
     }
 
     /**

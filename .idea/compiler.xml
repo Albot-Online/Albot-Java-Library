@@ -10,8 +10,5 @@
         <module name="Albot-Java-Library" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="Albot-Java-Library" target="8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

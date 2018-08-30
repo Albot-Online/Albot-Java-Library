@@ -1,5 +1,6 @@
 package albot.connect4;
 
+import albot.Constants;
 import albot.grid_based.GridBasedGame;
 import albot.grid_based.GridBoard;
 
@@ -11,6 +12,8 @@ import static albot.connect4.Connect4Constants.*;
  * A high level Connect4 library which sets up the connection and provides basic logic.
  */
 public class Connect4Game extends GridBasedGame {
+
+    public Connect4Board currentBoard;
 
     /**
      * Constructor, initializes library and connects to the client.
@@ -34,25 +37,9 @@ public class Connect4Game extends GridBasedGame {
         this.height = Fields.BOARD_HEIGHT;
     }
 
-    /**
-     * Blocking receive call for next board.
-     * @return next board
-     */
-    public Connect4Board makeMoveGetNextBoard(int move) {
-        makeMove(move);
-        return getNextBoard();
-    }
-
-    /**
-     * Receive the next board.
-     * @return next board
-     */
     @Override
-    public Connect4Board getNextBoard() {
-        GridBoard gb = super.getNextBoard();
-        if (gameOver())
-            return null;
-        return new Connect4Board(gb);
+    protected void UpdateCurrentBoard(GridBoard board) {
+        currentBoard = new Connect4Board(board);
     }
 
     /**
@@ -75,15 +62,14 @@ public class Connect4Game extends GridBasedGame {
     public void playGame(Function<Connect4Board, Integer> decideMove, boolean autoRestart) {
 
         while (true) {
-            Connect4Board newBoard = getNextBoard();
-            if (gameOver()) {
+            if (waitForNextGameState() != Constants.BoardState.ongoing) {
                 if (autoRestart) {
                     restartGame();
                     continue;
                 } else
                     break;
             }
-            int move = decideMove.apply(newBoard);
+            int move = decideMove.apply(currentBoard);
             makeMove(move);
         }
 

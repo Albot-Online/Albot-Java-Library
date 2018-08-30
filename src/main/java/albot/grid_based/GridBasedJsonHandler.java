@@ -40,16 +40,8 @@ class GridBasedJsonHandler {
         return gson.toJson(jsonCommand);
     }
 
-    static GridBoard parseResponseState(String response, int width, int height) {
-        //JsonObject jResponse = gson.fromJson(response, JsonObject.class);
-        JsonObject jResponse = JsonHandler.tryParse(response, JsonObject.class);
-        JsonElement jBoard = jResponse.get(Fields.board); // Get value
-        Type type2dIntArr = new TypeToken<int[][]>() {}.getType(); // Required cause of generic List
-        //String serializedGrid = jResponse.get(Fields.board).getAsString();
-        //int[][] grid = gson.fromJson(jBoard, type2dIntArr);
-        int[][] grid = JsonHandler.tryParse(jBoard, type2dIntArr);
-        grid = GridBoard.transpose(grid, height, width);
-        return new GridBoard(width, height, grid);
+    static GridBoard parseResponseState(JsonObject jResponse, int width, int height) {
+        return parseJsonGridBoard(jResponse, width, height);
     }
 
     static List<Integer> parseResponsePossibleMoves(String response) {
@@ -61,11 +53,28 @@ class GridBasedJsonHandler {
         return JsonHandler.tryParse(jPossMoves, typeIntegerList);
     }
 
+    static GridBoard parseResponseSimulateMove(String response, int width, int height) {
+        JsonObject jsonObject = JsonHandler.tryParse(response, JsonObject.class);
+        return parseJsonGridBoard(jsonObject, width, height);
+    }
+
     static BoardState parseResponseEvaluate(String response) {
         //JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
         JsonObject jsonObject = JsonHandler.tryParse(response, JsonObject.class);
         //String boardState = gson.fromJson(jsonObject.get(Fields.boardState), String.class);
         String boardState = JsonHandler.tryParse(jsonObject.get(Fields.boardState), String.class);
         return BoardState.valueOf(boardState);
+    }
+
+    private static GridBoard parseJsonGridBoard(JsonObject jState, int width, int height) {
+        //JsonObject jResponse = gson.fromJson(response, JsonObject.class);
+        //JsonObject jResponse = JsonHandler.tryParse(response, JsonObject.class);
+        JsonElement jBoard = jState.get(Fields.board); // Get value
+        Type type2dIntArr = new TypeToken<int[][]>() {}.getType(); // Required cause of generic List
+        //String serializedGrid = jResponse.get(Fields.board).getAsString();
+        //int[][] grid = gson.fromJson(jBoard, type2dIntArr);
+        int[][] grid = JsonHandler.tryParse(jBoard, type2dIntArr);
+        grid = GridBoard.transpose(grid, height, width);
+        return new GridBoard(width, height, grid);
     }
 }

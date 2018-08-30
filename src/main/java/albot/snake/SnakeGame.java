@@ -1,18 +1,20 @@
 package albot.snake;
 
-import albot.AlbotConnection;
 import albot.Constants;
+import albot.Game;
+import com.google.gson.JsonObject;
 
 import java.util.function.Function;
 
 import static albot.snake.SnakeBeans.*;
+import static albot.Constants.BoardState;
 
 /**
  * A high level Snake library which sets up the connection and provides basic logic.
  */
-public class SnakeGame extends AlbotConnection {
+public class SnakeGame extends Game {
 
-    SnakeBoard currentBoard;
+    public SnakeBoard currentBoard;
 
     /**
      * Constructor, initializes library and connects to the client.
@@ -30,19 +32,10 @@ public class SnakeGame extends AlbotConnection {
         super();
     }
 
-    /**
-     * Blocking receive call for next board.
-     * @return next board
-     */
-    public SnakeBoard getNextBoard() {
-
-        String state = receiveMessage(); // Receive before check for game over
-
-        if (gameOver())
-            return null;
-        BoardBean response = SnakeJsonHandler.parseResponseState(state);
-        currentBoard = new SnakeBoard(currentBoard, response);
-        return currentBoard;
+    @Override
+    protected void extractState(JsonObject jState) {
+        BoardBean boardBean = SnakeJsonHandler.parseResponseState(jState);
+        currentBoard = new SnakeBoard(currentBoard, boardBean);
     }
 
     /**
@@ -109,7 +102,7 @@ public class SnakeGame extends AlbotConnection {
      * @param board board to evaluate
      * @return Enum BoardState expressing information about board state.
      */
-    public Constants.BoardState evaluateBoard(SnakeBoard board) {
+    public BoardState evaluateBoard(SnakeBoard board) {
         String request = SnakeJsonHandler.createCommandEvaluate(board);
         String response = sendCommandReceiveMessage(request);
 
@@ -133,15 +126,14 @@ public class SnakeGame extends AlbotConnection {
     public void playGame(Function<SnakeBoard, String> decideMove, boolean autoRestart) {
 
         while (true) {
-            SnakeBoard newBoard = getNextBoard();
-            if (gameOver()) {
+            if (waitForNextGameState() != BoardState.ongoing) { // GameOver
                 if (autoRestart) {
                     restartGame();
                     continue;
                 } else
                     break;
             }
-            String move = decideMove.apply(newBoard);
+            String move = decideMove.apply(currentBoard);
             makeMove(move);
         }
 

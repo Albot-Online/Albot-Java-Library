@@ -49,10 +49,10 @@ class SnakeJsonHandler {
         return gson.toJson(jsonCommand);
     }
 
-    static BoardBean parseResponseState(String response) {
+    static BoardBean parseResponseState(JsonObject jState) {
         //System.out.println("Response state: \n" + response + "\n");
         //return gson.fromJson(response, BoardBean.class);
-        return JsonHandler.tryParse(response, BoardBean.class);
+        return JsonHandler.tryParse(jState, BoardBean.class);
     }
 
     static PossibleMoves parseResponsePossibleMoves(String response) {
@@ -70,8 +70,8 @@ class SnakeJsonHandler {
         //JsonObject jsonObject = gson.fromJson(response, JsonObject.class);
         JsonObject jsonObject = JsonHandler.tryParse(response, JsonObject.class);
         //String boardState = gson.fromJson(jsonObject.get(Constants.Fields.boardState), String.class);
-        String boardState = JsonHandler.tryParse(jsonObject.get(Constants.Fields.boardState), String.class);
+        //String boardState = JsonHandler.tryParse(jsonObject.get(Constants.Fields.boardState), String.class);
         //System.out.println(boardState);
-        return Constants.BoardState.valueOf(boardState);
+        return JsonHandler.fetchBoardState(jsonObject);
     }
 }

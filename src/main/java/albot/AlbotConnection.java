@@ -12,9 +12,6 @@ public class AlbotConnection {
     private static PrintWriter out;
     private final int bufferSize = 2048;
 
-    private boolean gameOver = false;
-    private int winner;
-
     /**
      * Constructor for connection
      * @param ip local ip to client
@@ -34,6 +31,7 @@ public class AlbotConnection {
         try {
             Socket s = new Socket(ip, port);
             s.setReceiveBufferSize(bufferSize);
+            s.setSendBufferSize(bufferSize);
             in = new BufferedReader(new InputStreamReader(s.getInputStream()));
             out = new PrintWriter(s.getOutputStream(), true);
         } catch (IOException e) {
@@ -43,7 +41,6 @@ public class AlbotConnection {
     }
 
     // Might have to fetch data another way if there are line breaks in data.
-
     /**
      * Blocking receive call for new TCP message as raw string.
      * @return response as raw string
@@ -58,7 +55,6 @@ public class AlbotConnection {
             System.out.println("Could not read message from TCP connection with Albot.");
             e.printStackTrace();
         }
-        handleGameOverCheck(incomingData);
         return incomingData;
     }
 
@@ -79,50 +75,6 @@ public class AlbotConnection {
     public String sendCommandReceiveMessage(String command) {
         sendCommand(command);
         return receiveMessage();
-    }
-
-    /**
-     * Restarts the current finished game.
-     */
-    public void restartGame() {
-        System.out.println("Restarting game...");
-        sendCommand(Constants.Actions.restartGame);
-        gameOver = false;
-    }
-
-    /**
-     * Checks for game over, make sure to check this after receiving the state.
-     * @return true if game is over, else false
-     */
-    public boolean gameOver() {
-        return gameOver;
-    }
-
-    /**
-     * Returns winner of the game, call this when game is over.
-     * @return 1 if you won, -1 if you lost, 0 if draw.
-     */
-    public int getWinner() {
-        return winner;
-    }
-
-    private void handleGameOverCheck(String incomingData) {
-        incomingData = incomingData.trim();
-        if (incomingData.length() >= 8 && incomingData.substring(0, 8).equals(Constants.Fields.gameOver)) {
-            if (incomingData.endsWith("-1")) {
-                winner = -1;
-                System.out.println("You lost!");
-            } else if (incomingData.endsWith("1")) {
-                winner = 1;
-                System.out.println("You won!");
-            } else if (incomingData.endsWith("0")) {
-                winner = 0;
-                System.out.println("Draw!");
-            } else
-                System.out.println("Game Over!");
-
-            gameOver = true;
-        }
     }
 
     /**
