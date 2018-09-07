@@ -12,6 +12,7 @@ Following is a short example of the Java Library being put to use on the [Snake]
 For exact information of how to use the library see the [documentation Wiki](https://github.com/Albot-Online/Albot-Java-Library/wiki).
 
 ```java
+import albot.Constants;
 import albot.snake.*;
 
 import java.util.List;
@@ -22,11 +23,10 @@ public class Main {
         SnakeGame game = new SnakeGame(); // Connects you to the client
         Random rand = new Random();
 
-        while(game.gameOver() == false) {
-            SnakeBoard board = game.getNextBoard();
+        while(game.waitForNextGameState() == BoardState.ongoing) { // Gets/Updates the board
 
             // Since this gives a class containing both playerMoves and enemyMoves, we specify playerMoves
-            List<String> possibleMoves = game.getPossibleMoves(board).playerMoves;
+            List<String> possibleMoves = game.getPossibleMoves(game.currentBoard).playerMoves;
 
             int randomIndex = rand.nextInt(possibleMoves.size());
             String randomMove = possibleMoves.get(randomIndex);
