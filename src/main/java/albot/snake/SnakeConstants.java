@@ -25,5 +25,9 @@ public final class SnakeConstants {
         public static final String playerMoves = "playerMoves";
         public static final String enemyMoves = "enemyMoves";
 
+        public static final String simMoveDelta = "simulateMoveDelta";
+        public static final String simPlayerMove = "simulatePlayerMove";
+        public static final String simEnemyMove = "simulateEnemyMove";
+
     }
 }

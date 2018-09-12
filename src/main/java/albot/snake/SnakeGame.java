@@ -65,7 +65,8 @@ public class SnakeGame extends Game {
      */
     public SnakeBoard simulatePlayerMove(SnakeBoard board, String move) {
         MovesToSimulate simMoves = new MovesToSimulate(move, true);
-        return handleSimulateMove(board, simMoves);
+        String request = SnakeJsonHandler.createCommandSimulatePlayer(board, simMoves);
+        return handleSimulateMove(board, simMoves, request);
     }
 
     /**
@@ -76,7 +77,8 @@ public class SnakeGame extends Game {
      */
     public SnakeBoard simulateEnemyMove(SnakeBoard board, String move) {
         MovesToSimulate simMoves = new MovesToSimulate(move, false);
-        return handleSimulateMove(board, simMoves);
+        String request = SnakeJsonHandler.createCommandSimulateEnemy(board, simMoves);
+        return handleSimulateMove(board, simMoves, request);
     }
 
     /**
@@ -88,11 +90,11 @@ public class SnakeGame extends Game {
      */
     public SnakeBoard simulateMoves(SnakeBoard board, String playerMove, String enemyMove) {
         MovesToSimulate simMoves = new MovesToSimulate(playerMove, enemyMove);
-        return handleSimulateMove(board, simMoves);
+        String request = SnakeJsonHandler.createCommandSimulateBoth(board, simMoves);
+        return handleSimulateMove(board, simMoves, request);
     }
 
-    private SnakeBoard handleSimulateMove(SnakeBoard board, MovesToSimulate simMoves) {
-        String request = SnakeJsonHandler.createCommandSimulate(board, simMoves);
+    private SnakeBoard handleSimulateMove(SnakeBoard board, MovesToSimulate simMoves, String request) {
         String response = sendCommandReceiveMessage(request);
         return SnakeJsonHandler.parseResponseSimulate(response);
     }

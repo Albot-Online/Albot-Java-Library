@@ -27,10 +27,21 @@ class SnakeJsonHandler {
         //return jsonCommand.toString();
     }
 
+
+    static String createCommandSimulateBoth(SnakeBoard board, MovesToSimulate simMoves) {
+        return createCommandSimulate(board, simMoves, Constants.Actions.simMove);
+    }
+    static String createCommandSimulatePlayer(SnakeBoard board, MovesToSimulate simMoves) {
+        return createCommandSimulate(board, simMoves, JProtocol.simPlayerMove);
+    }
+    static String createCommandSimulateEnemy(SnakeBoard board, MovesToSimulate simMoves) {
+        return createCommandSimulate(board, simMoves, JProtocol.simEnemyMove);
+    }
+
     // Gson seems to ignore null values by default
-    static String createCommandSimulate(SnakeBoard board, MovesToSimulate simMoves) {
+    private static String createCommandSimulate(SnakeBoard board, MovesToSimulate simMoves, String action) {
         JsonObject jsonCommand = new JsonObject();
-        jsonCommand.addProperty(Constants.Fields.action, Constants.Actions.simMove);
+        jsonCommand.addProperty(Constants.Fields.action, action);
         if(simMoves.playerMove != null)
             jsonCommand.addProperty(JProtocol.playerMove, simMoves.playerMove);
         if(simMoves.enemyMove != null)
