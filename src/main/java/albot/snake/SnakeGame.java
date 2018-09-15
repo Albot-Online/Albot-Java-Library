@@ -1,6 +1,5 @@
 package albot.snake;
 
-import albot.Constants;
 import albot.Game;
 import com.google.gson.JsonObject;
 
@@ -128,7 +127,7 @@ public class SnakeGame extends Game {
     public void playGame(Function<SnakeBoard, String> decideMove, boolean autoRestart) {
 
         while (true) {
-            if (waitForNextGameState() != BoardState.ongoing) { // GameOver
+            if (awaitNextGameState() != BoardState.ongoing) { // GameOver
                 if (autoRestart) {
                     restartGame();
                     continue;

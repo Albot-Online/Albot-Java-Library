@@ -62,7 +62,7 @@ public class Connect4Game extends GridBasedGame {
     public void playGame(Function<Connect4Board, Integer> decideMove, boolean autoRestart) {
 
         while (true) {
-            if (waitForNextGameState() != Constants.BoardState.ongoing) {
+            if (awaitNextGameState() != Constants.BoardState.ongoing) {
                 if (autoRestart) {
                     restartGame();
                     continue;

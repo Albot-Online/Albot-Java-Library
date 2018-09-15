@@ -37,7 +37,7 @@ public abstract class Game extends AlbotConnection {
      * Blocking receive call for next board and its state, both are stored locally as public variables.
      * @return The state of the board/game, check for ongoing if you want to see if game is over or not.
      */
-    public BoardState waitForNextGameState() {
+    public BoardState awaitNextGameState() {
         JsonObject jState = receiveNextGameState();
 
         extractState(jState);
