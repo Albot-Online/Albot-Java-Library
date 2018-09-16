@@ -23,7 +23,7 @@ public class Main {
         SnakeGame game = new SnakeGame(); // Connects you to the client
         Random rand = new Random();
 
-        while(game.waitForNextGameState() == BoardState.ongoing) { // Gets/Updates the board
+        while(game.awaitNextGameState() == BoardState.ongoing) { // Gets/Updates the board
 
             // Since this gives a class containing both playerMoves and enemyMoves, we specify playerMoves
             List<String> possibleMoves = game.getPossibleMoves(game.currentBoard).playerMoves;
