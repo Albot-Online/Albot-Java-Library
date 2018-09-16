@@ -1,6 +1,5 @@
 package albot.grid_based;
 
-import albot.AlbotConnection;
 import albot.Game;
 import com.google.gson.JsonObject;
 
@@ -32,10 +31,10 @@ public abstract class GridBasedGame extends Game {
     @Override
     protected void extractState(JsonObject jState) {
         currentBoard = GridBasedJsonHandler.parseResponseState(jState, width, height);
-        UpdateCurrentBoard(currentBoard);
+        updateCurrentBoard(currentBoard);
     }
 
-    protected abstract void UpdateCurrentBoard(GridBoard board);
+    protected abstract void updateCurrentBoard(GridBoard board);
 
     /**
      * Plays a move

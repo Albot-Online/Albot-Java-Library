@@ -38,7 +38,7 @@ public class Connect4Game extends GridBasedGame {
     }
 
     @Override
-    protected void UpdateCurrentBoard(GridBoard board) {
+    protected void updateCurrentBoard(GridBoard board) {
         currentBoard = new Connect4Board(board);
     }
 
