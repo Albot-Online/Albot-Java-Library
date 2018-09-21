@@ -1,5 +1,6 @@
 package albot.grid_based;
 
+import java.util.Arrays;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
@@ -28,7 +29,19 @@ public class GridBoard {
     public GridBoard(GridBoard gridBoard) {
         WIDTH = gridBoard.WIDTH;
         HEIGHT = gridBoard.HEIGHT;
-        this.grid = gridBoard.grid.clone();
+        //this.grid = gridBoard.grid.clone();
+        this.grid = deepCopy(gridBoard.grid);
+    }
+
+    private int[][] deepCopy(int[][] original) {
+        if (original == null)
+            return null;
+
+        final int[][] result = new int[original.length][];
+        for (int i = 0; i < original.length; i++)
+            result[i] = Arrays.copyOf(original[i], original[i].length);
+
+        return result;
     }
 
     /**

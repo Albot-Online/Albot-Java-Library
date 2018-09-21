@@ -1,5 +1,6 @@
 package albot.snake;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import static albot.snake.SnakeConstants.Fields;
@@ -15,6 +16,28 @@ public class SnakeBoard {
     }
     public SnakeBoard(BoardBean boardBean) {
         extractResponseInfo(boardBean);
+    }
+
+    /**
+     * Constructor for SnakeBoard which makes a deep copy of the passed board.
+     * @param board Board to be deep copied.
+     */
+    public SnakeBoard(SnakeBoard board) {
+        this.player = new Placement(board.player.x, board.player.y, board.player.dir);
+        this.enemy = new Placement(board.enemy.x, board.enemy.y, board.enemy.dir);
+        //this.blocked = board.blocked.clone();
+        this.blocked = deepCopy(board.blocked);
+    }
+
+    private boolean[][] deepCopy(boolean[][] original) {
+        if (original == null)
+            return null;
+
+        final boolean[][] result = new boolean[original.length][];
+        for (int i = 0; i < original.length; i++)
+            result[i] = Arrays.copyOf(original[i], original[i].length);
+
+        return result;
     }
 
     private void extractResponseInfo(BoardBean response) {
