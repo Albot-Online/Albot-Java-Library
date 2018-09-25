@@ -38,7 +38,7 @@ public final class SnakeBeans {
 
         @Override
         public String toString() {
-            return "{'x': " + x + ", 'y': " + y + "}";
+            return "{'x': " + x + ", 'y': " + y + ", 'dir': " + dir + "}";
         }
     }
 
@@ -71,24 +71,9 @@ public final class SnakeBeans {
 
         @Override
         public String toString() {
-            return "Position{" +
-                    "x=" + x +
-                    ", y=" + y +
-                    '}';
+            return "{" + "'x': " + x + ", 'y': " + y + '}';
         }
     }
-
-    /*
-    public static class PossibleMoves {
-        public List<String> player;
-        public List<String> enemy;
-
-        public PossibleMoves(List<String> player, List<String> enemy) {
-            this.player = player;
-            this.enemy = enemy;
-        }
-    }
-    */
 
     public static class BoardBean {
         public Placement player, enemy;
