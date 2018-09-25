@@ -82,9 +82,15 @@ public class SnakeBoard {
     public String getPlayerDirection() { return player.dir; }
     public String getEnemyDirection() { return enemy.dir; }
 
+    /* Ambiguous, what if draw? Should we check collision against enemies head, against players head?
+    Would instead suggest to implement playerDead/enemyDead or using the evaluateBoard method.
     public Boolean killed(Placement placement) {
+        if(!coordsInBounds(placement.x, placement.y))
+            return false;
+
         return blocked[placement.x][placement.y];
     }
+    */
 
     /**
      * The list of blocked cells.
