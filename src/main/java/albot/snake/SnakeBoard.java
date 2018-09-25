@@ -82,6 +82,10 @@ public class SnakeBoard {
     public String getPlayerDirection() { return player.dir; }
     public String getEnemyDirection() { return enemy.dir; }
 
+    public Boolean killed(Placement placement) {
+        return blocked[placement.x][placement.y];
+    }
+
     /**
      * The list of blocked cells.
      * @return Linked list with blocked cells
