@@ -1,7 +1,6 @@
 package albot.snake;
 
-import albot.Constants;
-
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -91,6 +90,108 @@ public class SnakeBoard {
             return true;
 
         return blocked[x][y];
+    }
+
+    /**
+     * Simulate a time step in the game, where both players have moved.
+     * @param playerMove player move to simulate
+     * @param enemyMove enemy move to simulate
+     * @return the board the moves has been applied
+     */
+    public SnakeBoard simulateMoves(String playerMove, String enemyMove) {
+        SnakeBoard simBoard = new SnakeBoard(this); // Deep copy of current board
+        simBoard.playMove(playerMove, true);
+        simBoard.playMove(enemyMove, false);
+        return simBoard;
+    }
+
+    /**
+     * Simulate a move where only the player moves.
+     * @param move move to simulate
+     * @return the board where the move has been applied
+     */
+    public SnakeBoard simulatePlayerMove(String move) {
+        SnakeBoard simBoard = new SnakeBoard(this); // Deep copy of current board
+        simBoard.playMove(move, true);
+        return simBoard;
+    }
+    /**
+     * Simulate a move where only the enemy moves.
+     * @param move move to simulate
+     * @return the board where the move has been applied
+     */
+    public SnakeBoard simulateEnemyMove(String move) {
+        SnakeBoard simBoard = new SnakeBoard(this); // Deep copy of current board
+        simBoard.playMove(move, false);
+        return simBoard;
+    }
+
+    // Applies a given move to the board
+    private void playMove(String move, boolean player) {
+        Placement target = player ? this.player : this.enemy;
+        blocked[target.x][target.y] = true;
+
+        switch (move) {
+            case "right":
+                target.x++; break;
+            case "left":
+                target.x--; break;
+            case "down":
+                target.y++; break;
+            case "up":
+                target.y--; break;
+        }
+    }
+
+    /**
+     * Returns the possible moves for the player, based off direction only.
+     * @return List of Strings representing the legal moves
+     */
+    public List<String> getPossiblePlayerMoves() {
+        return dirToPossibleMoves(player.dir);
+    }
+    /**
+     * Returns the possible moves for the enemy, based off direction only.
+     * @return List of Strings representing the legal moves
+     */
+    public List<String> getPossibleEnemyMoves() {
+        return dirToPossibleMoves(enemy.dir);
+    }
+    /**
+     * Returns the possible moves for both the player and the enemy, based off directions only.
+     * @return class containing a list of possible moves for the player and the enemy
+     */
+    public PossibleMoves getPossibleMoves() {
+        List<String> player = dirToPossibleMoves(this.player.dir);
+        List<String> enemy = dirToPossibleMoves(this.enemy.dir);
+        return new PossibleMoves(player, enemy);
+    }
+
+    private List<String> dirToPossibleMoves(String dir) {
+        ArrayList<String> possMoves = new ArrayList<>(3);
+        switch (dir) {
+            case "right":
+                possMoves.add("right");
+                possMoves.add("up");
+                possMoves.add("down");
+                break;
+            case "left":
+                possMoves.add("left");
+                possMoves.add("up");
+                possMoves.add("down");
+                break;
+            case "down":
+                possMoves.add("left");
+                possMoves.add("right");
+                possMoves.add("down");
+                break;
+            case "up":
+                possMoves.add("left");
+                possMoves.add("up");
+                possMoves.add("right");
+                break;
+        }
+        return possMoves;
     }
 
     /**

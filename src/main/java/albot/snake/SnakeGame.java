@@ -81,7 +81,7 @@ public class SnakeGame extends Game {
     }
 
     /**
-     * Simulate a timestep in the game, where both players have moved.
+     * Simulate a time step in the game, where both players have moved.
      * @param board board to simulate in
      * @param playerMove player move to simulate
      * @param enemyMove enemy move to simulate
