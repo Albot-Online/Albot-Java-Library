@@ -1,10 +1,13 @@
 package albot.snake;
 
+import albot.Constants;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import static albot.snake.SnakeConstants.Fields;
 import static albot.snake.SnakeBeans.*;
+import static albot.Constants.BoardState;
 
 public class SnakeBoard {
     public SnakeBeans.Placement player, enemy;
@@ -70,8 +73,8 @@ public class SnakeBoard {
      * @return True if position is occupied, false if square is empty.
      */
     public boolean cellBlocked(int x, int y) {
-        if (x < 0 || y < 0 || x >= Fields.BOARD_WIDTH || y >= Fields.BOARD_HEIGHT)
-            return true; // Out of bounds
+        if (! coordsInBounds(x, y)) // Out of bounds
+            return true;
         if ((x == player.x && y == player.y) || (x == enemy.x && y == enemy.y))
             return true;
         return blocked[x][y];
@@ -82,15 +85,30 @@ public class SnakeBoard {
     public String getPlayerDirection() { return player.dir; }
     public String getEnemyDirection() { return enemy.dir; }
 
-    /* Ambiguous, what if draw? Should we check collision against enemies head, against players head?
-    Would instead suggest to implement playerDead/enemyDead or using the evaluateBoard method.
-    public Boolean killed(Placement placement) {
-        if(!coordsInBounds(placement.x, placement.y))
-            return false;
+    // Not counting heads as blocked cells!
+    private Boolean killed(int x, int y) {
+        if(! coordsInBounds(x, y))
+            return true;
 
-        return blocked[placement.x][placement.y];
+        return blocked[x][y];
     }
-    */
+
+    public BoardState evaluateBoardState () {
+        if(player.x == enemy.x && player.y == enemy.y)
+            return BoardState.draw;
+
+        boolean playerDead = killed(player.x, player.y);
+        boolean enemyDead = killed(enemy.x, enemy.y);
+
+        if(playerDead && enemyDead)
+            return BoardState.draw;
+        if(playerDead)
+            return BoardState.enemyWon;
+        if(enemyDead)
+            return BoardState.playerWon;
+
+        return BoardState.ongoing;
+    }
 
     /**
      * The list of blocked cells.
