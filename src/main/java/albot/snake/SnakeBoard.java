@@ -93,6 +93,10 @@ public class SnakeBoard {
         return blocked[x][y];
     }
 
+    /**
+     * Returns the state of the board
+     * @return Enum BoardState expressing information about board state. Possible values: ongoing, draw, playerwon, enemywon
+     */
     public BoardState evaluateBoardState () {
         if(player.x == enemy.x && player.y == enemy.y)
             return BoardState.draw;

@@ -101,7 +101,7 @@ public class SnakeGame extends Game {
     /**
      * Returns the state of the board
      * @param board board to evaluate
-     * @return Enum BoardState expressing information about board state.
+     * @return Enum BoardState expressing information about board state. Possible values: ongoing, draw, playerwon, enemywon
      */
     public BoardState evaluateBoard(SnakeBoard board) {
         String request = SnakeJsonHandler.createCommandEvaluate(board);
